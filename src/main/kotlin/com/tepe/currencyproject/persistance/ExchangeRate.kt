@@ -16,8 +16,8 @@ class ExchangeRate: CurrencyService {
     private val temp = RestTemplate()
     private val headers = HttpHeaders()
 
-    override fun converter(date: String, currency: List<String>): List<CurrencyResponse>? {
-        val url = "${HttpRoutes.EXCHANGE_BASE_URL}$date?symbols=${currency.joinToString(",")}"
+    override fun converter(date: String, currency: List<String>, base: String): List<CurrencyResponse>? {
+        val url = "${HttpRoutes.EXCHANGE_BASE_URL}$date?base=$base&symbols=${currency.joinToString(",")}"
 
         val res = temp.exchange<ExchangeConversion>(
             url = url,

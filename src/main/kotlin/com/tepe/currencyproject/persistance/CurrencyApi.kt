@@ -19,8 +19,8 @@ class CurrencyApi : CurrencyService {
         headers["apikey"] = HttpRoutes.CURRENCY_API_KEY
     }
 
-    override fun converter(date: String, currency: List<String>): List<CurrencyResponse>? {
-        val url = "${HttpRoutes.CURRENCY_API_BASE_URL}?date=$date&currencies=${currency.joinToString(",")}"
+    override fun converter(date: String, currency: List<String>, base: String): List<CurrencyResponse>? {
+        val url = "${HttpRoutes.CURRENCY_API_BASE_URL}?date=$date&base_currency=$base&currencies=${currency.joinToString(",")}"
 
         val res = temp.exchange<CurrencyAPI>(
             url = url,

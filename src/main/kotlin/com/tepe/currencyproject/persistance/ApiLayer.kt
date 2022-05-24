@@ -20,8 +20,8 @@ class ApiLayer : CurrencyService {
         headers["apikey"] = HttpRoutes.API_LAYER_KEY
     }
 
-    override fun converter(date: String, currency: List<String>): List<CurrencyResponse>? {
-        val url = "${HttpRoutes.API_LAYER_BASE_URL}$date?symbols=${currency.joinToString(",")}"
+    override fun converter(date: String, currency: List<String>, base: String): List<CurrencyResponse>? {
+        val url = "${HttpRoutes.API_LAYER_BASE_URL}$date?base=$base&symbols=${currency.joinToString(",")}"
 
         val res = temp.exchange<APILayer>(
             url = url,

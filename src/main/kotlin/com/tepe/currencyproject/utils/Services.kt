@@ -8,6 +8,6 @@ object Services {
     val WEB_SERVICES = listOf(
         CurrencyApi(),
         ApiLayer(),
-        ExchangeRate()
+        ExchangeRate(),
     )
 }
